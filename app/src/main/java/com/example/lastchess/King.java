@@ -12,7 +12,6 @@ public class King extends Piece {
         super( white);
     }
 
-
     @Override
     public ArrayList<Coordinates> AllowedMoves(Coordinates coordinates , Position[][] board){
         ArrayList<Coordinates> allowedMoves = new ArrayList<>();

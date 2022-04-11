@@ -15,7 +15,10 @@
     <color name="colorDanger">#a2ce2a7c</color>
     <color name="colorPositionAvailable">#88FFDD</color>
     <color name="colorSelected">#0CC35C</color>
-    <color name="colorKingInDanger">#8dff0004</color>
+    <color name="colorKingInDanger">#8DE4090D</color>
     <color name="backgroundBoard">#d9732b</color>
     <color name="choose">#898989</color>
+    <color name="red">#E81212</color>
+    <color name="blue">#2196F3</color>
+    <color name="ye">#FFEB3B</color>
 </resources>

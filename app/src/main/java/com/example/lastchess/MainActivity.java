@@ -1,4 +1,4 @@
-package com.example.lastchess;
+package com.example.btl_android;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -330,13 +332,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setBoard();
     }
 
-    private void setBoard() {
+   	private void setBoard() {
+
+
+        int tinh=0;
+        int ma = 0;
+        int xe = 0;
+        int tot = 0;
+        int tinhden=0;
+        int maden = 0;
+        int xeden = 0;
+        int totden = 0;
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
                 Piece p = Board[i][j].getPiece();
                 int x;
+
+
 
                 if (Board[i][j].getPiece() != null) {
                     if (p instanceof King) x = 0;
@@ -350,48 +365,82 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (x) {
                         case 0:
                             if (p.isWhite()) {
+                                rootRef.child("Games").child("wKing").child("quanco").setValue("wKing");
+                                rootRef.child("Games").child("wKing").child("toado").setValue(i + "" + j);
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wking);
                             } else {
+                                rootRef.child("Games").child("bKing").child("quanco").setValue("bKing");
+                                rootRef.child("Games").child("bKing").child("toado").setValue(i + "" + j);
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.bking);
                             }
                             break;
 
                         case 1:
-                            if (p.isWhite()) {
+                            if (p.isWhite()) {  rootRef.child("Games").child("wQueen").child("quanco").setValue("wQueen");
+                                rootRef.child("Games").child("wQueen").child("toando").setValue(i+""+j);
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wqueen);
                             } else {
+                                rootRef.child("Games").child("bQueen").child("quanco").setValue("bQueen");
+                                rootRef.child("Games").child("bQueen").child("toado").setValue(i+""+j);
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.bqueen);
                             }
                             break;
 
                         case 2:
                             if (p.isWhite()) {
+                                rootRef.child("Games").child("wRook"+xe).child("quanco").setValue("wRook");
+                                rootRef.child("Games").child("wRook"+xe).child("toando").setValue(i + "" + j);
+                                xe++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wrook);
                             } else {
+                                rootRef.child("Games").child("bRook"+xeden).child("quanco").setValue("bRook");
+                                rootRef.child("Games").child("bRook"+xeden).child("toando").setValue(i + "" + j);
+                                xeden++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.brook);
                             }
                             break;
 
                         case 3:
                             if (p.isWhite()) {
+                                rootRef.child("Games").child("bBishop"+tinh).child("quanco").setValue("wBishop");
+                                rootRef.child("Games").child("bBishop"+tinh).child("toado").setValue(i + "" + j);
+                                tinh++;
+
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wbishop);
                             } else {
+                                rootRef.child("Games").child("bBishop"+tinhden).child("quanco").setValue("bBishop");
+                                rootRef.child("Games").child("bBishop"+tinhden).child("toado").setValue(i + "" + j);
+                                tinhden++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.bbishop);
                             }
                             break;
 
                         case 4:
                             if (p.isWhite()) {
+                                rootRef.child("Games").child("wKnight"+maden).child("quanco").setValue("wKnight");
+                                rootRef.child("Games").child("wKnight"+maden).child("toado").setValue(i + "" + j);
+                                ma++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wknight);
                             } else {
+                                rootRef.child("Games").child("bKnight"+maden).child("quanco").setValue("bKnight");
+                                rootRef.child("Games").child("bKnight"+maden).child("toado").setValue(i + "" + j);
+                                maden++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.bknight);
                             }
                             break;
 
                         case 5:
                             if (p.isWhite()) {
+                                rootRef.child("Games").child("bPawn"+totden).child("quanco").setValue("bPawn");
+                                rootRef.child("Games").child("wPawn" +tot).child("toado").setValue(i + "" + j);
+                                tot++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.wpawn);
                             } else {
+
+                                rootRef.child("Games").child("bPawn"+totden).child("quanco").setValue("bPawn");
+
+                                rootRef.child("Games").child("bPawn" +totden).child("toado").setValue(i + "" + j);
+                                totden++;
                                 DisplayBoard[i][j].setBackgroundResource(R.drawable.bpawn);
                             }
                             break;
@@ -399,10 +448,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         default:
 
                     }
-                }else{
+                } else {
                     DisplayBoard[i][j].setBackgroundResource(0);
                 }
             }
+
         }
         isKingInDanger();
     }
@@ -796,6 +846,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+    }
+
+    public void newgame(View v){
+        Intent newgame= new Intent(getBaseContext(),MainActivity.class);
+        startActivity(newgame);
     }
 
     public void undo(View v){

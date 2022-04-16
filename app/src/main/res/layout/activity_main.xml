@@ -8,9 +8,6 @@
     tools:context=".MainActivity"
     android:background="@color/backgroundBoard">
 
-    <!--    Edit by Nguyen Trung Hieu -->
-
-<!--    Tạo khung nhìn -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -22,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background" />
 
-<!--Tạo GridLayout để hiển thị các item theo dạng hình lưới -->
+    <!--Tạo GridLayout để thiết kế bố cục-->
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +31,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-<!--Thiết lập backgroundcho các ô trong bàn cờ-->
         <TextView
             android:background="@color/colorBoardDark"
             android:id="@+id/R000"
@@ -417,8 +413,6 @@
             android:layout_height="43dp" />
     </GridLayout>
 
-    <!--Tạo sự kiện cho các ô trong bàn cơ-->
-    <!--Tạo GridLayout để hiển thị các item theo dạng hình lưới -->
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -430,7 +424,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-    <!--Tạo sự kiện click cho từng ô trên bàn cờ-->
+        <!--Bắt sự kiện click cho từng ô trên bàn cờ-->
         <TextView
             android:id="@+id/R00"
             android:elevation="1dp"
@@ -1008,12 +1002,13 @@
             android:layout_height="43dp" />
     </GridLayout>
 
-<!--    Tạo sự kiện cho nút button -->
+    <!--    Tạo button undo -->
     <Button
         android:text="UNDO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/undo_button"
+        android:textColor="@color/ye"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -1021,8 +1016,22 @@
         android:onClick="undo"
         android:background="@drawable/cusom_undo"
         />
-<!--Tạo Linear Layout để sắp xếp các view-->
-     <LinearLayout
+    <!--Tạo button newgame-->
+    <Button
+        android:id="@+id/newgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="newgame"
+        android:text="New Game"
+        android:textColor="@color/ye"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:background="@drawable/cusom_undo"
+        />
+
+    <!--Tạo Linear Layout để sắp xếp các view-->
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -1034,7 +1043,7 @@
         android:id="@+id/pawn_chioces"
         android:background="#dcf18d6d"
         >
-
+        <!--Background cho quân hậu -->
         <TextView
             android:text="Queen"
             android:layout_width="match_parent"
@@ -1050,7 +1059,7 @@
             android:textColor="#e60f0f"
             android:onClick="pawnChoice"
             android:elevation="6dp"/>
-
+        <!-- Background cho quân tịnh -->
         <TextView
             android:text="Bishop"
             android:layout_width="match_parent"
@@ -1067,6 +1076,7 @@
             android:onClick="pawnChoice"
             android:elevation="6dp"/>
 
+        <!-- Background cho quân xe -->
         <TextView
             android:text="Rook"
             android:layout_width="match_parent"
@@ -1083,6 +1093,7 @@
             android:onClick="pawnChoice"
             android:elevation="6dp"/>
 
+        <!-- Background cho quân mã -->
         <TextView
             android:text="Knight"
             android:layout_width="match_parent"
@@ -1100,7 +1111,7 @@
             android:elevation="6dp"/>
 
     </LinearLayout>
-<!-- -->
+    <!-- -->
     <TextView
         android:text="Game Over"
         android:layout_width="wrap_content"
@@ -1119,7 +1130,7 @@
         android:textColor="@color/red"
         android:background="@color/ye"/>
 
-<!--Button play again-->
+    <!--Button play again-->
     <Button
         android:id="@+id/play_again"
         android:layout_width="160dp"

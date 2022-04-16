@@ -75,46 +75,50 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.955" />
+
+
+    <!--    icon notifi-->
     <Button
-        android:text="Online"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_start"
         android:id="@+id/button2"
+        android:layout_width="212dp"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:background="@drawable/custom_start"
+        android:text="Online"
 
         android:textColor="#FFEB3B"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955"/>
+        app:layout_constraintVertical_bias="0.919" />
 
+    <!--    icon help-->
 
-    <!--    icon notifi-->
+    <!--    icon menu-->
+
     <ImageView
         android:id="@+id/CV"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:layout_marginLeft="356dp"
+        android:layout_marginLeft="340dp"
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/chuong" />
 
-    <!--    icon help-->
     <ImageView
         android:id="@+id/ct"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:layout_marginLeft="304dp"
+        android:layout_marginLeft="288dp"
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ct" />
 
-    <!--    icon menu-->
     <ImageView
         android:id="@+id/mn"
         android:layout_width="52dp"
@@ -148,23 +152,24 @@
         app:srcCompat="@drawable/volume" />
 
     <!--   icon languge-->
+
+    <!--    icon star- đánh giá-->
     <ImageView
         android:id="@+id/lg"
         android:layout_width="58dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="348dp"
-        android:layout_marginTop="676dp"
+        android:layout_marginLeft="336dp"
+        android:layout_marginTop="660dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lg" />
 
-    <!--    icon star- đánh giá-->
     <ImageView
         android:id="@+id/ratingBar"
         android:layout_width="58dp"
         android:layout_height="54dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="676dp"
+        android:layout_marginTop="660dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gd" />
